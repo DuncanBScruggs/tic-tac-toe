@@ -49,6 +49,8 @@ function view() {
     main.appendChild(container);
 }
 
+
+// mark puts either X or O depending on the turn into the targeted col
 function mark(e) {
     var target = e.target.id;
     console.log(e.target.id)
@@ -66,6 +68,8 @@ function mark(e) {
     }
 }
 
+
+// handles the turn can refactor into mark
 function turnHandler(){
     if (turn == true){
         return turn = false;
@@ -75,7 +79,10 @@ function turnHandler(){
     }
 }
 
+
+// checks if either player has met a win condition and if not calls a draw
 function winConditions() {
+    // need to refactor to for loop
     var col0 = document.getElementById("0").childNodes[0].textContent;
     var col1 = document.getElementById("1").childNodes[0].textContent;
     var col2 = document.getElementById("2").childNodes[0].textContent;
@@ -86,6 +93,7 @@ function winConditions() {
     var col7 = document.getElementById("7").childNodes[0].textContent;
     var col8 = document.getElementById("8").childNodes[0].textContent;
 
+    // array of winning conditions
     var winarr = [
         [col0,col1,col2],
         [col3,col4,col5],
@@ -107,7 +115,8 @@ function winConditions() {
         //     alert(winarr[i][0] + " Wins!");
         //     return ifWin();
         // }
-        // TWO
+
+        // logic for checking for win conditions
         if(winarr[i][0] == "X" && winarr[i][1] == "X" && winarr[i][2] == "X"){
             alert(winarr[i][0] + " Wins!");
             return ifWin();
@@ -123,6 +132,7 @@ function winConditions() {
     } 
  }
 
+ 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
