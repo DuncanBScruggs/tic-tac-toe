@@ -119,27 +119,32 @@ function winConditions() {
         // logic for checking for win conditions
         if(winarr[i][0] == "X" && winarr[i][1] == "X" && winarr[i][2] == "X"){
             alert(winarr[i][0] + " Wins!");
+            flier();
             return ifWin();
         }
         if(winarr[i][0] == "O" && winarr[i][1] == "O" && winarr[i][2] == "O"){
             alert(winarr[i][0] + " Wins!");
+            flier();
             return ifWin();
         }
         else if(count == 9){
             alert(" NO ONE WINS!");
+            flier();
             return ifWin();
         }
     } 
  }
 
- 
+
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
-
+function flier(){
+    document.getElementById("fly").setAttribute("src","img/JamesWillems.png")
+}
 
 function ifWin(){
     document.getElementById("0").removeEventListener("click", mark);
